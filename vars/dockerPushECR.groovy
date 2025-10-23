@@ -19,11 +19,11 @@ def call(String aws_account_id, String region, String ecr_repoName) {
             "REPO_NAME=${ecr_repoName}"
         ]) {
             sh '''
-                aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com
+                aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${ECR_REGISTRY}
                 
                 echo "Tagging and pushing image..."
-                docker tag ${REPO_NAME}:latest ${ECR_REGISTRY}/${REPO_NAME}:latest
-                docker push ${ECR_REGISTRY}/${REPO_NAME}:latest
+                // docker tag ${REPO_NAME}:latest ${ECR_REGISTRY}/${REPO_NAME}:latest
+                // docker push ${ECR_REGISTRY}/${REPO_NAME}:latest
             '''
         }
     }
