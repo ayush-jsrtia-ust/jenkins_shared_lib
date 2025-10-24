@@ -10,8 +10,7 @@
 def call(String aws_account_id, String region, String ecr_repoName) {
     withCredentials([
         string(credentialsId: 'aws_access_key_id', variable: 'AWS_ACCESS_KEY_ID'),
-        string(credentialsId: 'aws_secret_access_key', variable: 'AWS_SECRET_ACCESS_KEY'),
-        string(credentialsId: 'aws_session_token', variable: 'AWS_SESSION_TOKEN')
+        string(credentialsId: 'aws_secret_access_key', variable: 'AWS_SECRET_ACCESS_KEY')
     ]) {
         withEnv([
             "AWS_DEFAULT_REGION=${region}",
